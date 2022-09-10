@@ -13,5 +13,9 @@ include_once './vendor/autoload.php';
 use Project\Controllers\Apply;
 
 $applylist = new Apply();
-$applylist->store($_POST);
-header('location: index.php');
+if(!$applylist->store($_POST)){
+    header('location: create.php?error=Form is Sumited unsuccessfully and required');
+}else{
+    header('location: index.php?success=Form is Sumited successfully');
+}
+//$applylist->store($_POST);

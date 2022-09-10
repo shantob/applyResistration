@@ -19,15 +19,43 @@ class Apply
     }
     public function store(array $data)
     {
+        $_SESSION['old'] = $data;
+
+        if (empty($data['id'])) {
+            $_SESSION['errors']['id'] = "Required Id";
+        } elseif (!is_numeric($data['id'])) {
+            $_SESSION['errors']['id'] = "Must be required integer number";
+        }
+        if (empty($data['name'])) {
+            $_SESSION['errors']['name'] = "Required Name";
+        }
+        if (empty($data['father_name'])) {
+            $_SESSION['errors']['father_name'] = "Required Name Father ";
+        }
+        if (empty($data['mother_name'])) {
+            $_SESSION['errors']['mother_name'] = "Mother Name Required ";
+        }
+        if (empty($data['collage'])) {
+            $_SESSION['errors']['collage'] = "Collage Name Required ";
+        }
+        if (empty($data['depertment'])) {
+            $_SESSION['errors']['depertment'] = "Required Depertment Name";
+        }
+        if (empty($data['gpa'])) {
+            $_SESSION['errors']['gpa'] = "Required GPA Name";
+        }
+        if (isset($_SESSION['errors'])) {
+            return false;
+        }
 
         $_SESSION['applylist'][] = $data;
-
+        unset($_SESSION['old']);
         $_SESSION['massage'] = "Successfully Created!!!";
+        return true;
 
-         array_push($_SESSION, $data);
-
-        echo "<pre>";
-        print_r($_SESSION);
+        //  array_push($_SESSION, $data);
+        // echo "<pre>";
+        // print_r($_SESSION);
     }
 
 
@@ -65,5 +93,3 @@ class Apply
         return $index;
     }
 }
-
-

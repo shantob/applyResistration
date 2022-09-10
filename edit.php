@@ -38,6 +38,13 @@
                             <input type="text" class="form-control"value="<?= $appliInfo['father_name'] ?>"  name="father name" placeholder="Endter Father Name">
                             <label for="mother name" class="mt-5">Mother Name</label>
                             <input type="text" class="form-control"value="<?= $appliInfo['mother_name'] ?>"  name="mother_name" placeholder="Endter Mother Name">
+                            <br><br>
+                            <label for="gender">Select Gender   : </label>
+                            <br>
+                            <input type="radio" name="gender" class="mx-3" value="female">Female
+                            <input type="radio" name="gender" class="mx-3" value="male">Male
+                            <input type="radio" name="gender" class="mx-3" value="other">Other
+                            <br><br>
                             <label for="collage" class="mt-5">Collage</label>
                             <input type="text" class="form-control"value="<?= $appliInfo['collage'] ?>"  name="collage" placeholder="Endter collage Name">
                             <label for="depertment" class="mt-5">Depertment</label>

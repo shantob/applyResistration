@@ -18,4 +18,4 @@ $applylist->update($_POST, $_GET['id']);
 // print_r($_POST);
 //print_r($_GET['id']);
 //$editFood->edit($_GET);
- header('location: index.php');
+ header('location: index.php?success=Form is Updated successfully');
